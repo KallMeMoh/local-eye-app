@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/onboarding-scaffold' :(context) => OnboardingScaffold(initialIndex: 0,),
         '/first-Page' :(context) => OnboardingScaffold(initialIndex: 1,),
         'second-page' :(context) => OnboardingScaffold(initialIndex: 2,),
+        '/third-page' :(context) => OnboardingScaffold(initialIndex: 3,),
       },
     );
     return app;
