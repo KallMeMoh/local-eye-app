@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:local_eye/Pages/home_page.dart';
 
 import 'first_observation_page.dart';
+import 'second_observation_page.dart';
 
 class OnboardingScaffold extends StatefulWidget {
   final int initialIndex;
@@ -17,6 +18,7 @@ class _OnboardingScaffoldState extends State<OnboardingScaffold> {
 
   final List<Widget> _pages = const [
     FirstObservationPage(),
+    SecondObservationPage(),
   ];
 
   void _nextPage() {
