@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class InitialPage extends StatefulWidget {
@@ -8,7 +9,8 @@ class InitialPage extends StatefulWidget {
   State<InitialPage> createState() => _InitialPageState();
 }
 
-class _InitialPageState extends State<InitialPage> with SingleTickerProviderStateMixin {
+class _InitialPageState extends State<InitialPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _blinkAnimation;
   Timer? _timer;
@@ -16,7 +18,7 @@ class _InitialPageState extends State<InitialPage> with SingleTickerProviderStat
   @override
   void initState() {
     super.initState();
-    
+
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 250),
@@ -38,7 +40,7 @@ class _InitialPageState extends State<InitialPage> with SingleTickerProviderStat
   @override
   void dispose() {
     _timer?.cancel();
-    _controller.dispose(); 
+    _controller.dispose();
     super.dispose();
   }
 
@@ -59,10 +61,10 @@ class _InitialPageState extends State<InitialPage> with SingleTickerProviderStat
                 boxShadow: [
                   BoxShadow(
                     color: Color(0xA315745C),
-                    blurRadius: 30, 
+                    blurRadius: 30,
                     spreadRadius: 8,
-                  )
-                ]
+                  ),
+                ],
               ),
               child: Stack(
                 alignment: Alignment.center,
@@ -72,25 +74,22 @@ class _InitialPageState extends State<InitialPage> with SingleTickerProviderStat
                     width: 100,
                     height: 100,
                   ),
-                  
+
                   AnimatedBuilder(
                     animation: _blinkAnimation,
                     builder: (context, child) {
                       return Transform.scale(
-                        scaleY: _blinkAnimation.value, 
+                        scaleY: _blinkAnimation.value,
                         alignment: Alignment.center,
                         child: child,
                       );
                     },
-                    child: Image.asset(
-                      'assets/icons/eye_only.png',
-                      width: 50,
-                    ),
+                    child: Image.asset('assets/icons/eye_only.png', width: 50),
                   ),
                 ],
               ),
             ),
-            
+
             const SizedBox(height: 30),
 
             const Text(
@@ -101,23 +100,24 @@ class _InitialPageState extends State<InitialPage> with SingleTickerProviderStat
                 color: Colors.white,
               ),
             ),
-        
+
             const SizedBox(height: 10),
 
             const Text(
               "Your data doesn't leave the country",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
+              style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
 
             const SizedBox(height: 40),
 
             TextButton(
-              onPressed: (){
-                print('you clicked Start');
-              }, 
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  '/onboarding-scaffold',
+                  (_) => false,
+                );
+              },
               child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -129,9 +129,9 @@ class _InitialPageState extends State<InitialPage> with SingleTickerProviderStat
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(width: 8), 
+                  SizedBox(width: 8),
                   Icon(
-                    Icons.arrow_forward_ios_sharp, 
+                    Icons.arrow_forward_ios_sharp,
                     color: Color(0xFF1DE9B6),
                     size: 20,
                   ),
