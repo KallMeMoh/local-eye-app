@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_eye/Pages/onboarding_scaffold.dart';
 
 import 'Pages/home_page.dart';
 import 'Pages/initial_page.dart';
@@ -26,6 +27,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => InitialPage(),
         '/home' :(context) => HomePage(),
+        '/onboarding-scaffold' :(context) => OnboardingScaffold(initialIndex: 0,),
+        '/first-Page' :(context) => OnboardingScaffold(initialIndex: 1,),
+        'second-page' :(context) => OnboardingScaffold(initialIndex: 2,),
+        '/third-page' :(context) => OnboardingScaffold(initialIndex: 3,),
       },
     );
     return app;
